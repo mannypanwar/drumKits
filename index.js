@@ -3,7 +3,6 @@ for (i = 0; i <= 6; i++) {
 }
 function handleClick() {
   var sound = this.innerHTML;
-  console.log(sound);
 
   switch (sound) {
     case "w":
