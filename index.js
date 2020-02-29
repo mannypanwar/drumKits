@@ -1,6 +1,7 @@
 //detecting keyboard press
 document.addEventListener("keydown", function(event) {
   makeSound(event.key);
+  doAnimation(event.key);
 });
 
 //detecting button press
@@ -8,6 +9,7 @@ for (i = 0; i <= 6; i++) {
   document.querySelectorAll("button")[i].addEventListener("click", function() {
     var sound = this.innerHTML;
     makeSound(sound);
+    doAnimation(this.innerHTML);
   });
 }
 
@@ -44,7 +46,20 @@ function makeSound(key) {
       break;
 
     default:
-      console.log(sound);
+      console.log("U are pressing wrong keys");
       break;
   }
+}
+
+//animation
+
+function doAnimation(somethingpress) {
+  var animation = document.querySelector("." + somethingpress);
+
+  // adds pressed class to the pressed button
+  animation.classList.add("pressed");
+  // removes pressed class from the pressed button
+  setTimeout(function() {
+    animation.classList.remove("pressed");
+  }, 100);
 }
